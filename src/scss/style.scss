@@ -1,0 +1,1043 @@
+@import 'fonts.scss';
+@import 'normalize.scss';
+@import 'mixsins.scss';
+@import 'smart-grid.scss';
+
+
+
+/*=============================================
+      ОБЩИЕ ПРАВИЛА
+  ============================================= */
+
+$ff1: "ArialMT",
+sans-serif;
+$ff3: "ArialBoldItalicMT",
+sans-serif;
+$ff2: "ArialBoldMT",
+sans-serif;
+$ff4: "Lato",
+sans-serif;
+$ff5: "LatoBlack",
+sans-serif;
+
+$fc9: #434343;
+$fc10: #dfe1e5;
+$fc2: #ffffff;
+$fc1: #000000;
+$fc11: #0d0707;
+$fc3: #2aacc8;
+$fc8: #81e4ed;
+$fc4: #363636;
+$fc13: #e8fcfe;
+$fc12: #e05936;
+$fc7: #626262;
+$fc6: #e7e7e7;
+$fc5: #e8ebf1;
+
+
+.clearfix:after {
+    @include clearfix;
+}
+
+.wrapper {
+    @include wrapper;
+    box-sizing: content-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: $ff1;
+    color: $fc1;
+}
+
+.hide {
+    display: none;
+}
+
+/*============================================= */
+
+
+/*=============================================
+        ШАПКА
+============================================= */
+.header {
+    background: $fc5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+}
+
+.topLine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0 41px 0;
+
+    @include md-block {
+        display: block;
+        text-align: center;
+    }
+
+    @include sm-block {
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+}
+
+.logoBurgerBlock {
+    @include sm-block {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    &__link {
+        color: $fc1;
+        font-family: $ff5;
+        font-size: 50px;
+        line-height: 0.4;
+        @include sm (line-height, 0.85);
+
+        span {
+            color: $fc3;
+            font-family: $ff4;
+        }
+    }
+}
+
+.nav {
+
+    @include md-block {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    @include sm-block {
+        display: none;
+        border-top: 3px solid $fc3;
+    }
+
+
+    &__list {
+        display: flex;
+        list-style-type: none;
+
+        @include sm-block {
+            display: block;
+            width: 70%;
+            margin: 10px auto 0 auto;
+        }
+
+        @include xs (width, 100%);
+    }
+
+    &__item {
+        position: relative;
+        margin-left: 21px;
+        padding: 7px 10px;
+        border-top: 5px solid transparent;
+        transition: all ease 0.25s;
+
+        &:first-child {
+            margin-left: 0;
+            margin-right: 18px;
+        }
+
+        @include sm-block {
+            width: 100%;
+            margin-left: 0;
+            border-bottom: 1px solid $fc9;
+        }
+
+        &:hover,
+        &--active {
+            border-top: 5px solid $fc3;
+
+            @include sm (border-top, transparent);
+        }
+
+        &:hover {
+            background-color: $fc2;
+        }
+
+        &:hover .nav__subList {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: $fc1;
+        font-size: 13px;
+        line-height: 1.54;
+        text-transform: uppercase;
+        font-family: $ff2;
+
+        @include sm-block {
+            justify-content: space-between;
+        }
+
+        &:hover,
+        &--active {
+            color: $fc3;
+        }
+    }
+
+    &__icon {
+        margin-left: 6px;
+        fill: $fc1;
+        width: 7px;
+        height: 5px;
+    }
+
+    .nav__subList {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 205%;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        list-style-type: none;
+        background-color: $fc2;
+        z-index: 10;
+        transition: 0.35s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        border-bottom: 5px solid $fc3;
+
+        @include sm-block {
+            width: 100%;
+            padding-bottom: 0;
+            border-bottom: 1px solid $fc9;
+        }
+    }
+
+    .nav__subItem {
+        padding-left: 7px;
+        padding-right: 7px;
+
+        &:last-child>a {
+            border-bottom: none;
+        }
+
+        @include md (text-align, left);
+    }
+
+    .nav__subLink {
+        display: block;
+        padding-left: 10px;
+        color: $fc1;
+        font-size: 13px;
+        line-height: 2.77;
+        font-weight: 400;
+        font-family: $ff1;
+        border-bottom: 1px solid $fc6;
+
+        &:hover {
+            color: $fc3;
+        }
+    }
+}
+
+.header__burger {
+    @include sm-block {
+        display: block;
+    }
+}
+
+/* Кнопка меню-гамбургер
+------------------------------------------------*/
+.burger {
+    @include gamburger (50px, 50px, 24px, 3px, 5px, $fc3, $fc1);
+}
+
+/*----------------------------------------------*/
+
+
+/*============================================= */
+
+
+/*=============================================
+        ОСНОВНОЙ КОНТЕНТ
+============================================= */
+
+/*---------------------------------------------
+  Секция со слайдером
+--------------------------------------------- */
+.base {
+    background-color: $fc8;
+    padding: 20px 0 8px 0;
+
+    @include xs-block {
+        padding-bottom: 20px;
+    }
+}
+
+.baseSlider {
+    display: flex;
+    width: 100%;
+    padding-bottom: 40px;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.12);
+    background-color: $fc12;
+    background-image: url(../img/images/Layer_4.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto 100%;
+
+    &__text {
+        max-width: 360px;
+        margin-top: 102px;
+        padding-left: 61px;
+        color: $fc2;
+        font-size: 3.57vw;
+        font-family: $ff4;
+
+        @include sm-block {
+            margin-top: 80px;
+        }
+
+        @include xs-block {
+            max-width: 200px;
+            margin-top: 50px;
+            padding-left: 30px;
+        }
+    }
+
+    &__img {
+        margin-left: 63px;
+
+        @include md-block {
+            margin-left: 0;
+        }
+
+        @include sm-block {
+            visibility: hidden;
+        }
+    }
+}
+
+.owl-carousel .owl-item img {
+    width: 15.07vw;
+}
+
+/* Пагинация слайдера
+------------------------------------------------*/
+.owl-carousel {
+    .owl-dots {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: -5px;
+        text-align: center;
+
+        @include xs-block {
+            display: none;
+        }
+
+        .owl-dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-left: 17px;
+            background-color: $fc7;
+            transition: background-color 0.5s ease transform 0.5s ease;
+            outline: none;
+
+            &.active {
+                background-color: $fc2;
+            }
+        }
+    }
+}
+
+/*----------------------------------------------*/
+
+/*----------------------------------------------*/
+
+/*---------------------------------------------
+  Секция услуги
+--------------------------------------------- */
+.amenities {
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: $fc5;
+}
+
+.amenities__content {
+    @include row-flex();
+
+    @include md-block {
+        justify-content: center;
+    }
+}
+
+.amenitiesCard {
+    @include col();
+    @include size(3);
+
+    @include size-md(6);
+    @include size-xs(12);
+
+    padding-top: 60px;
+    padding-bottom: 45px;
+
+    &:last-child {
+        margin-left: 12px;
+    }
+
+    @include md-block {
+        max-width: 300px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $fc9;
+    }
+    @include xs-block {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px 0;        
+    }
+
+    &__icon {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $fc3;
+
+        .amenitiesCard__svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 21px;
+            height: 24px;
+            fill: $fc2;
+        }
+    }
+
+    &__title {
+        display: inline-block;
+        transform: translateY(-100%);
+        margin-left: 20px;
+        color: $fc1;
+        font-size: 1.07vw;
+        line-height: 1.33;
+        text-transform: uppercase;
+        font-family: $ff2;
+
+        @include md-block {
+            font-size: 14px;
+        }
+    }
+
+    &__desc {
+        margin-top: -10px;
+        color: $fc4;
+        font-size: 13px;
+        line-height: 1.54;
+        font-weight: 400;
+        font-family: $ff1;
+    }
+
+    &__readMore {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+
+        .amenitiesCard__readMoreIcon {
+            width: 5px;
+            height: 7px;
+            fill: $fc1;
+        }
+
+        a {
+            margin-left: 10px;
+            color: $fc3;
+            font-size: 13px;
+            line-height: 1.54;
+            font-weight: 400;
+            font-family: $ff1;
+
+        }
+    }
+}
+
+/*----------------------------------------------*/
+
+/*---------------------------------------------
+  Секция последние работы
+--------------------------------------------- */
+.works {
+    padding-top: 15px;
+
+    &__icon {
+        display: inline-block;
+        width: 14px;
+        height: 24px;
+        fill: $fc3;
+    }
+
+    &__title {
+        display: inline-block;
+        margin-left: 20px;
+        color: $fc1;
+        font-size: 15px;
+        line-height: 1.33;
+        text-transform: uppercase;
+        font-family: $ff2;
+        transform: translateY(-20%);
+    }
+
+    &__content {
+        @include row-flex;
+
+        justify-content: space-between;
+        padding: 15px 0 30px 0;
+        border-top: 1px solid $fc10;
+        border-bottom: 1px solid $fc10;
+
+    }
+}
+
+.worksItem {
+    @include col();
+    @include size(2.9);
+
+    position: relative;
+    background-color: $fc1;
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__hover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background-color: $fc3;
+        transition: opacity ease 0.5s;
+
+        .worksItem__hoverSee {
+            display: inline-block;
+            width: 35px;
+            height: 25px;
+            fill: $fc2;
+            cursor: zoom-in;
+        }
+
+        .worksItem__hoverLink {
+            display: inline-block;
+            margin-left: 25px;
+            width: 20px;
+            height: 26px;
+            fill: $fc2;
+        }
+    }
+
+    &:hover>.worksItem__hover {
+        opacity: 1;
+    }
+}
+
+/* Настройки magnificpopap
+------------------------------------------------*/
+
+.mfp-img {
+    max-width: none;
+    max-height: none !important;
+}
+
+/* start state */
+.my-mfp-zoom-in .zoom-anim-dialog {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.2);
+}
+
+/* animate in */
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* animate out */
+.my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+    transform: scale(0.2);
+    opacity: 0;
+}
+
+/* Dark overlay, start state */
+.my-mfp-zoom-in.mfp-bg {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* animate in */
+.my-mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+/* animate out */
+.my-mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+/*----------------------------------------------*/
+
+
+/* Настройки навигации слик-слайдера
+------------------------------------------------*/
+.slick-leftArrow,
+.slick-rightArrow {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $fc8;
+}
+
+.slick-rightArrow {
+    top: -40px;
+    right: 30px;
+    background-image: url(../img/images/Shape_1_copy.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.slick-leftArrow {
+    top: -40px;
+    right: 30px;
+    margin-right: 30px;
+    background-image: url(../img/images/Shape_1.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*----------------------------------------------*/
+.main__content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/*---------------------------------------------
+  Секция рекомендации
+--------------------------------------------- */
+.testimonials {
+    width: 50%;
+
+    @include md-block {
+        width: 100%;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $fc10;
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+        fill: $fc3;
+    }
+
+    &__text {
+        max-width: 425px;
+        margin-bottom: 30px;
+        padding-right: 10px;
+        color: $fc4;
+        font-size: 14px;
+        line-height: 1.71;
+        font-weight: 400;
+        font-family: $ff1;
+
+        @include md-block {
+            max-width: 100%;
+        }
+    }
+
+    span {
+        padding-right: 10px;
+        font-family: $ff3;
+        font-weight: 700;
+        font-style: italic;
+    }
+}
+
+/*----------------------------------------------*/
+
+/*---------------------------------------------
+  Секция клиенты
+--------------------------------------------- */
+.clients {
+    width: 50%;
+
+    @include md-block {
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+        fill: $fc3;
+    }
+}
+
+.clients__content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .clients__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 33.3%;
+        padding: 18px 0;
+        box-shadow: inset 0 0 25px $fc5;
+        border: 1px solid $fc5;
+        background-color: transparent;
+
+        @include md-block {
+            width: 30%;
+        }
+
+        @include xs-block {
+            width: 45%;
+        }
+
+        @include xxxs-block {
+            width: 90%;
+        }
+
+        .clients__img {
+            display: block;
+            max-width: 100%;
+            z-index: -1;
+        }
+    }
+}
+
+/*----------------------------------------------*/
+
+/*----------------------------------------------*/
+.download {
+    display: flex;
+
+    align-items: center;
+    padding: 37px 40px 35px 31px;
+    border: 1px solid $fc8;
+    background-color: $fc13;
+
+    @include sm-block {
+        padding: 20px 20px 18px 16px;
+    }
+
+    @include xs-block {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    a {
+        display: inline-block;
+    }
+
+    &__text {
+        display: inline-block;
+        max-width: 607px;
+        color: $fc4;
+        font-size: 16px;
+        line-height: 1.63;
+        font-family: $ff1;
+
+        @include sm-block {
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
+        @include xs-block {
+            width: 85%;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        padding: 16px 20px 19px 20px;
+        margin-left: 81px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(255, 255, 255, 0.1);
+        border: 1px solid $fc3;
+        background-color: $fc3;
+        background-image: linear-gradient(to top, $fc3 0%, #60cede 15%, #72dae6 50%, $fc8 100%);
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+        @include sm-block {
+            padding: 8px 10px 10px 10px;
+        }
+
+        @include xs-block {
+            margin-top: 10px;
+            margin-left: 0;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 28px;
+        height: 25px;
+        fill: $fc2;
+    }
+
+    span {
+        margin-left: 24px;
+        color: $fc11;
+        font-size: 1.3vw;
+        line-height: 1.11;
+        text-transform: uppercase;
+        font-family: $ff2;
+
+        @include sm-block {
+            margin-left: 15px;
+            font-size: 12px;
+        }
+    }
+}
+
+/*----------------------------------------------*/
+
+/*============================================= */
+
+
+/*=============================================
+        ПОДВАЛ
+============================================= */
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: $fc5;
+
+
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include md-block {
+            justify-content: space-around;
+        }
+        @include xxs-block {
+            justify-content: flex-start;
+        }
+    }
+
+    &__itemAbout {
+        width: 22%;
+
+        @include md-block {
+            width: 25%;
+        }
+
+        @include sm-block {
+            width: 40%;
+        }
+        @include xxs-block {
+            width: 85%;
+        }
+    }
+
+    .footer__title {
+        color: $fc1;
+        font-family: $ff2;
+        font-size: 1.07vw;
+        line-height: 1.33;
+        text-transform: uppercase;
+
+        @include md-block {
+            font-size: 15px;
+        }
+    }
+
+    .footer__text {
+        color: $fc4;
+        font-size: 14px;
+        font-family: $ff1;
+
+    }
+
+    &__itemExplore {
+        width: 7.1%;
+        margin-left: 4.85vw;
+
+        @include md-block {
+            width: 25%;
+        }
+        
+        @include sm-block {
+            margin-left: 0;
+        }
+        @include xxs-block {
+            width: 50%;
+            margin-top: 20px;
+        }
+    }
+
+    .footer__list {
+        list-style-type: none;
+
+        .footer__item {
+            margin-bottom: 10px;
+
+            .footer_link {
+                color: $fc4;
+                font-size: 14px;
+                font-family: $ff1;
+
+                &:hover {
+                    color: $fc3;
+                }
+
+
+            }
+        }
+    }
+
+    &__itemBrowse {
+        width: 9.2%;
+        margin-left: 5.57vw;
+
+        @include md-block {
+            width: 25%;
+        }
+
+        @include sm-block {
+            margin-left: 0;
+        }
+        @include xxs-block {
+            width: 50%;
+            margin-top: 20px;
+        }
+    }
+
+    &__itemContacts {
+        width: 16.6%;
+        margin-left: 4.71vw;
+
+        @include md-block {
+            width: 30%;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+        @include xxs-block {
+            width: 80%;
+        }
+
+        p {
+            color: $fc4;
+            font-size: 14px;
+            font-family: $ff1;
+        }
+
+        .footer__phone {
+            margin-top: 15px;
+        }
+    }
+
+    &__itemSocials {
+        width: 18.5%;
+        margin-left: 4vw;
+
+        @include md-block {
+            width: 30%;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+
+        @include xxs-block {
+            width: 50%;
+        }
+    }
+}
+
+.socialsBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include md-block {
+        width: 70%;
+    }
+
+    .socials__link {
+        display: block;
+        width: 28%;
+        margin-bottom: 10px;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.bottomLine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .copy {
+        max-width: 640px;
+        color: $fc4;
+        font-size: 13px;
+        line-height: 1.38;
+        font-family: $ff1;
+
+        @include md-block {
+            max-width: 490px;
+        }
+
+        @include sm-block {
+            width:60%;
+            margin-right: 30px;
+        }
+        @include xxs-block {
+            width: 90%;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+/*============================================= */
+
+
+/*=============================================
+        АДАПТИВ
+============================================= */
+
+@import '_media.scss';
+
+/*============================================= */

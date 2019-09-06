@@ -1,0 +1,17 @@
+@mixin font-face($font-family, $file-path) {
+    @font-face {
+        font-family: $font-family;
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;       
+        src: url('#{$file-path}.woff2') format('woff2'),
+             url('#{$file-path}.woff') format('woff'),
+             url('#{$file-path}.ttf') format('truetype');
+    }
+}
+
+@include font-face("ArialBoldItalicMT", "../fonts/ArialBoldItalicMT/ArialBoldItalicMT");
+@include font-face("ArialBoldMT", "../fonts/ArialBoldMT/ArialBoldMT");
+@include font-face("ArialMT", "../fonts/ArialMT/ArialMT");
+@include font-face("LatoBlack", "../fonts/LatoBlack/LatoBlack");
+@include font-face("Lato", "../fonts/Lato/LatoRegular");

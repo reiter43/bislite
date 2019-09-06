@@ -1,0 +1,1 @@
+"use strict";var burger=document.querySelector(".header__burger");document.querySelector(".burger").addEventListener("click",function(e){e.preventDefault,e.target.classList.toggle("burger--active"),"block"!=document.querySelector(".nav").style.display?document.querySelector(".nav").style.display="block":document.querySelector(".nav").style.display="none"});
