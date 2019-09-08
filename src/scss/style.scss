@@ -494,18 +494,18 @@ body {
         text-transform: uppercase;
         font-family: $ff2;
         transform: translateY(-20%);
-    }    
+    }
 }
 
 .works__content {
-        @include row-flex;
+    @include row-flex;
 
-        justify-content: space-between;
-        padding: 15px 0 30px 0;
-        border-top: 1px solid $fc10;
-        border-bottom: 1px solid $fc10;
+    justify-content: space-between;
+    padding: 15px 0 30px 0;
+    border-top: 1px solid $fc10;
+    border-bottom: 1px solid $fc10;
 
-    }
+}
 
 .worksItem {
     @include col();
@@ -1089,7 +1089,7 @@ body {
             background-color: $fc8;
         }
 
-        @include sm-block{
+        @include sm-block {
             margin-top: 10px;
         }
     }
@@ -1099,21 +1099,21 @@ body {
     justify-content: flex-start;
     padding-top: 40px;
     padding-bottom: 0;
-    border: none; 
-    
-    @include xs-block{
+    border: none;
+
+    @include xs-block {
         justify-content: center;
     }
 }
 
-.worksItem{
+.worksItem {
     @include size-sm(4);
     @include size-xs(6);
     @include size-xxxs(12);
 }
 
 .worksItem--portfolio {
-    margin-bottom: 40px;   
+    margin-bottom: 40px;
 }
 
 .portfolio__pagination {
@@ -1137,7 +1137,7 @@ body {
         background-color: $fc5;
     }
 
-    &:last-child{
+    &:last-child {
         margin-left: 15px;
     }
 
@@ -1148,7 +1148,224 @@ body {
     }
 }
 
+/*============================================= */
 
+/*=============================================
+        СТРАНИЦА КОНТАКТОВ
+============================================= */
+.contact {
+    padding-top: 30px;
+
+    &__titleBox {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid $fc10;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 17px;
+        fill: $fc3;
+    }
+
+    &__title {
+        margin: 0;
+        margin-left: 10px;
+        color: $fc1;
+        font-size: 15px;
+        line-height: 1.33;
+        text-transform: uppercase;
+        font-family: $ff2;
+    }
+
+    &__content {
+        display: flex;
+
+        margin-top: 30px;
+
+        @include sm-block {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    &__form {
+        width: 64%;
+
+        @include sm-block {
+            width: 100%;
+            max-width: 75%;
+        }
+
+        @include xs-block {
+            max-width: 95%;
+        }
+
+        p {
+            max-width: 565px;
+            padding-right: 15px;
+            color: $fc1;
+            font-size: 14px;
+            font-family: $ff1;
+
+            a {
+                color: $fc3;
+                font-family: $ff2;
+                font-size: 15px;
+            }
+        }
+    }
+
+    &__subtext {
+        margin-top: 15px;
+    }
+}
+
+.formContact {
+    margin-top: 20px;
+
+    label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        color: $fc1;
+        font-size: 14px;
+        font-family: $ff1;
+    }
+
+    input {
+        display: block;
+        padding-left: 15px;
+        width: 70%;
+        height: 40px;
+
+        @include sm-block {
+            width: 100%;
+        }
+    }
+
+    textarea {
+        display: block;
+        padding-top: 5px;
+        padding-left: 15px;
+        width: 70%;
+        height: 158px;
+        resize: none;
+
+        @include sm-block {
+            width: 100%;
+        }
+    }
+
+    .form__button {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        padding: 20px 36px 20px 22px;
+        background: none;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(255, 255, 255, 0.1);
+        border: transparent;
+        border: 1px solid $fc3;
+        border-radius: 6px;
+        background-color: $fc3;
+        background-image: linear-gradient(to top, $fc3 0%, #60cede 15%, #72dae6 50%, $fc8 100%);
+        color: $fc11;
+        font-size: 18px;
+        line-height: 1.11;
+        text-transform: uppercase;
+        font-family: $ff2;
+
+        .form__icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            fill: $fc2;
+        }
+    }
+}
+
+.contact__map {
+    @include sm-block {
+        width: 100%;
+        max-width: 75%;
+        margin-top: 20px;
+    }
+
+    @include xs-block {
+        max-width: 95%;
+    }
+}
+
+.contact__mapBox {
+    padding: 18px;
+    border: 1px solid $fc8;
+    background-color: $fc13;
+
+    p {
+        margin-bottom: 20px;
+        color: $fc1;
+        font-size: 14px;
+        font-family: $ff2;
+    }
+}
+
+.map {
+    width: 300px;
+    height: 200px;
+    border: 5px solid $fc2;
+    background-color: $fc1;
+
+    @include sm-block {
+        width: 100%;
+    }
+}
+
+.contact__adressBox {
+    margin-top: 30px;
+    max-width: 135px;
+
+    h4 {
+        margin: 0;
+        color: $fc1;
+        font-family: $ff2;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: $fc4;
+        font-size: 14px;
+        font-family: $ff1;
+    }
+
+    .contact__adress {
+        margin: 15px 0;
+    }
+}
+
+/*============================================= */
+
+/* Всплывающее окно
+------------------------------------------------*/
+.chips-field {    
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 20px;
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+.chips-field .chipp {
+    padding: 0.5rem 1.5rem;    
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    color: $fc3;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+}
+/*------------------------------------------------*/
 
 /*=============================================
         АДАПТИВ

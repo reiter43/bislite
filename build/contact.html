@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=64437d9c-2a46-4924-bef1-b631c34dd9fd&lang=ru_RU"
+        type="text/javascript">
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="wrapper">
+            <div class="topLine">
+                <div class="logoBurgerBlock">
+                    <div class="logo">
+                        <a href="index.html" class="logo__link">Bis<span>Lite</span></a>
+                    </div>
+
+                    <div class="header__burger hide">
+                        <button class="burger ">
+                            <span class="burger__line"></span>
+                            <span class="burger__line"></span>
+                            <span class="burger__line"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item "><a href="" class="nav__link ">Home </a>
+                        </li>
+                        <li class="nav__item"><a href="#" class="nav__link"> About Us </a></li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link">
+                                Services
+                                <svg class="nav__icon">
+                                    <use xlink:href="img/svg/sprite.svg#downArrow"></use>
+                                </svg>
+                            </a>
+                            <ul class="nav__subList">
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Web Design</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Wordpress Design</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Mobile App Devplopment</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Internet Marketing</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Social Media Management</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="portfolio.html" class="nav__link">
+                                Portfolio
+                                <svg class="nav__icon">
+                                    <use xlink:href="img/svg/sprite.svg#downArrow"></use>
+                                </svg>
+                            </a>
+                            <ul class="nav__subList">
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink"> Websites</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Wordpress</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Mobile Apps</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink"> Icons </a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Logos</a>
+                                </li>
+                                <li class="nav__subItem">
+                                    <a href="#" class="nav__subLink">Graphics</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item"><a href="#" class="nav__link">Blog</a></li>
+                        <li class="nav__item nav__item--active"><a href="contact.html" class="nav__link nav__link--active">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact">
+        <div class="wrapper">
+            <div class="contact__titleBox">
+                <svg class="contact__icon">
+                    <use xlink:href="img/svg/sprite.svg#email"></use>
+                </svg>
+                <h2 class="contact__title">contact us</h2>
+            </div>
+            <div class="contact__content">
+                <div class="contact__form">
+                    <p class="contact__text">
+                        Thank you for stopping by. Please use the form below to contact us and will get back to you at
+                        the earliest possible
+                    </p>
+                    <p class="contact__subtext">
+                        For feedback or questions, please email us at:
+                        <a href="">email@bislite.com</a>
+                    </p>
+                    <form id="form" class="formContact">
+                        <!-- Hidden Required Fields -->
+                        <input type="hidden" name="project_name" value="http://f0315577.xsph.ru">
+                        <input type="hidden" name="admin_email" value="43reiter@gmail.com">
+                        <input type="hidden" name="email_from" value="info@f0315577.xsph.ru">
+                        <input type="hidden" name="form_subject" value="Сообщение с сайта">
+
+                        <!-- END Hidden Required Fields -->
+                        <label for="form__name">Name</label>
+                        <input type="text" name="Имя" id="form__name" class="form__name" placeholder="" required>
+
+                        <label for="form__email">Email Address</label>
+                        <input type="email" name="Электронная почта" id="form__email" class="form__email" placeholder=""
+                            required>
+
+                        <label for="form__subject">Subject</label>
+                        <input type="text" name="Объект" id="form__subject" class="form__subject" placeholder=""
+                            required>
+
+                        <label for="form__message">Description</label>
+                        <textarea name="Сообщение" id="form__message" class="form__message" placeholder=""
+                            required></textarea>
+
+                        <button class="form__button">
+                            <svg class="form__icon">
+                                <use xlink:href="img/svg/sprite.svg#submit"></use>
+                            </svg>
+                            Submit
+                        </button>
+                    </form>
+                </div>
+                <div class="contact__map">
+                    <div class="contact__mapBox">
+                        <p>We are here </p>
+                        <div id="map" class="map"></div>
+                    </div>
+                    <div class="contact__adressBox">
+                        <h4>Office Address</h4>
+                        <p class="contact__adress">
+                            BisLite Inc.
+                            Always Street 265
+                            0X - 125 - Canada
+                        </p>
+                        <p>
+                            Phone: 987-6543-210
+                            Fax: 987-6543-210
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer__content">
+                <div class="footer__itemAbout">
+                    <h2 class="footer__title">About us</h2>
+                    <p class="footer__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod placerat dui et
+                        tincidunt. Sed sollicitudin posuere auctor. Phasellus at ultricies nisl. Integer at leo eros. Ut
+                        nec lorem id orci convallis porta. Donec pharetra neque eu velit dictum molestie.
+                    </p>
+                </div>
+                <div class="footer__itemExplore">
+                    <h2 class="footer__title">Explore</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer_link">Home</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">About Us</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Services</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Portfolio</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer__itemBrowse">
+                    <h2 class="footer__title">Browse</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer_link">Careers</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Press & Media</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Contact Us</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Terms of Service</a></li>
+                        <li class="footer__item"><a href="#" class="footer_link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__itemContacts">
+                    <h2 class="footer__title">contact us</h2>
+                    <p class="footer__adres">BisLite Inc. <br> Always Street 265 <br> 0X - 125 - Canada</p>
+                    <p class="footer__phone">Phone: 987-6543-210 Fax: 987-6543-210</p>
+                </div>
+                <div class="footer__itemSocials">
+                    <h2 class="footer__title">connect with us</h2>
+                    <div class="socialsBox">
+                        <a href="#" class="socials__link"><img src="img/images/facebook.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                        <a href="#" class="socials__link"><img src="img/images/dribbble.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                        <a href="#" class="socials__link"><img src="img/images/pinterest.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                        <a href="#" class="socials__link"><img src="img/images/linkedin.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                        <a href="#" class="socials__link"><img src="img/images/skype.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                        <a href="#" class="socials__link"><img src="img/images/share.png" alt="Изображение соцсети"
+                                class="socialsBox"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomLine">
+                <p class="copy">
+                    © Copyright 2012 - BisLite Inc. All rights reserved. Some free icons used here are created by
+                    Brankic1979.com.
+                    Client Logos are copyright and trademark of the respective owners / companies.
+                </p>
+                <div class="logo">
+                    <a href="index.html" class="logo__link">Bis<span>Lite</span></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
